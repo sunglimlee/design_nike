@@ -294,6 +294,13 @@ class AppBarWidget extends StatelessWidget {
                 const Text("Women"),
                 const Text("Boys"),
                 const Text("Girls"),
+                GestureDetector(
+                  onTap: () {
+                    //Navigator.pushNamed(context, "myRoute");
+                    showAlertDialog1(context, content: "This site is for the test purpose. \nPlease visit again for more in future", title: "Thank you for visiting");
+                  },
+                  child: const Text("About SunglimLee", style: TextStyle(color: Colors.black),),
+                )
               ],
             ),
           ),
@@ -423,4 +430,18 @@ class BackgroundWidget extends StatelessWidget {
       ],
     );
   }
+}
+
+//AlertDialog 보여주는 함수
+showAlertDialog1(BuildContext context,
+    {content = "default Content", title = "default title"}) {
+  AlertDialog alertDialog = AlertDialog(
+    title: Text(title),
+    content: Text(content),
+  );
+  showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alertDialog;
+      });
 }
